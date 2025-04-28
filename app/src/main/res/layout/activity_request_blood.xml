@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/requestBloodLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    tools:context=".RequestBloodActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/requestTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Request Blood"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Blood Type Dropdown -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Blood Type:" />
+        <AutoCompleteTextView
+            android:id="@+id/bloodTypeDropdown"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="Select Blood Type"
+            android:inputType="none"
+            android:background="@android:drawable/editbox_background" />
+
+        <!-- Urgency Dropdown -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Urgency:"
+            android:layout_marginTop="16dp" />
+        <AutoCompleteTextView
+            android:id="@+id/urgencyDropdown"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="Select Urgency Level"
+            android:inputType="none"
+            android:background="@android:drawable/editbox_background" />
+
+        <!-- Hospital Dropdown -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hospital Location:"
+            android:layout_marginTop="16dp" />
+        <AutoCompleteTextView
+            android:id="@+id/hospitalDropdown"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="Select Hospital"
+            android:inputType="none"
+            android:background="@android:drawable/editbox_background" />
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/submitRequestBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit Request"
+            android:layout_marginTop="24dp" />
+
+        <!-- ListView -->
+        <ListView
+            android:id="@+id/requestListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" />
+    </LinearLayout>
+</ScrollView>

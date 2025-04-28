@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
+    android:background="@drawable/splah_bg">
+
+    <!-- Find Donor Button -->
+    <Button
+        android:id="@+id/findDonorBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Find Donor"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Donate Now Button -->
+    <Button
+        android:id="@+id/donateNowBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Donate Now"
+        android:layout_marginBottom="16dp" />
+
+    <!-- My Profile Button -->
+    <Button
+        android:id="@+id/myProfileBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Profile"
+        android:layout_marginBottom="16dp" />
+
+    <!-- History Button -->
+    <Button
+        android:id="@+id/historyBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="History"
+        android:layout_marginBottom="16dp" />
+
+</LinearLayout>
