@@ -1,49 +1,38 @@
 package com.example.sbdn;
 
 import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.dripblood.myapplication.R;
 
 public class SplashActivity extends AppCompatActivity {
 
-    protected ImageView imageView;
+    private LottieAnimationView lottie1, lottie2;
+    private ImageView loadImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        // Initialize Lottie animations and image view
+        lottie1 = findViewById(R.id.lottie1);
+        lottie2 = findViewById(R.id.lottie2);
+        loadImage = findViewById(R.id.load_image);
 
-        imageView = findViewById(R.id.load_image);
+        // You can customize animations here (optional)
+        lottie1.setSpeed(1.0f);
+        lottie2.setSpeed(1.0f);
 
-//        imageView.setAlpha(0f);
-//        imageView.animate().alpha(1).setDuration(2300).setStartDelay(300).start();
-
-        imageView.setScaleY(0);
-        imageView.setPivotY(300);
-        imageView.animate().scaleY(1).setDuration(600).setStartDelay(2800).start();
-
-
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        }, 3000);
+        // Example delay before moving to next activity (3 seconds)
+        new Handler().postDelayed(() -> {
+            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }, 3000); // 3000ms = 3 seconds
     }
 }

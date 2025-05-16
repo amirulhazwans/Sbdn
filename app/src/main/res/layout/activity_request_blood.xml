@@ -1,81 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/requestBloodLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
+    android:orientation="vertical"
+    android:background="#FFE6F0"
     tools:context=".RequestBloodActivity">
 
-    <LinearLayout
+    <!-- App Bar with Back Button -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="?attr/actionBarSize"
+        android:background="#D50000"
+        android:title="Request Blood"
+        android:titleTextColor="@android:color/white" />
 
-        <TextView
-            android:id="@+id/requestTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Request Blood"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="20dp" />
+    <!-- Scrollable Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="Request blood form with spinner selections">
 
-        <!-- Blood Type Dropdown -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Blood Type:" />
-        <AutoCompleteTextView
-            android:id="@+id/bloodTypeDropdown"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:hint="Select Blood Type"
-            android:inputType="none"
-            android:background="@android:drawable/editbox_background" />
-
-        <!-- Urgency Dropdown -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Urgency:"
-            android:layout_marginTop="16dp" />
-        <AutoCompleteTextView
-            android:id="@+id/urgencyDropdown"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:hint="Select Urgency Level"
-            android:inputType="none"
-            android:background="@android:drawable/editbox_background" />
-
-        <!-- Hospital Dropdown -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hospital Location:"
-            android:layout_marginTop="16dp" />
-        <AutoCompleteTextView
-            android:id="@+id/hospitalDropdown"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:hint="Select Hospital"
-            android:inputType="none"
-            android:background="@android:drawable/editbox_background" />
-
-        <!-- Submit Button -->
-        <Button
-            android:id="@+id/submitRequestBtn"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit Request"
-            android:layout_marginTop="24dp" />
+            android:orientation="vertical"
+            android:padding="24dp">
 
-        <!-- ListView -->
-        <ListView
-            android:id="@+id/requestListView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp" />
-    </LinearLayout>
-</ScrollView>
+            <TextView
+                android:id="@+id/requestTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Request Blood"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#D50000"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp" />
+
+            <!-- Blood Type Spinner -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Blood Type"
+                android:textColor="#000000"
+                android:layout_marginBottom="4dp" />
+
+            <Spinner
+                android:id="@+id/bloodTypeSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:backgroundTint="#CCCCCC"
+                android:padding="8dp" />
+
+            <!-- Urgency Spinner -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Urgency"
+                android:textColor="#000000"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="4dp" />
+
+            <Spinner
+                android:id="@+id/urgencySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:backgroundTint="#CCCCCC"
+                android:padding="8dp" />
+
+            <!-- Hospital Location Spinner -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hospital Location"
+                android:textColor="#000000"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="4dp" />
+
+            <Spinner
+                android:id="@+id/hospitalSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:backgroundTint="#CCCCCC"
+                android:padding="8dp" />
+
+            <!-- Date Picker -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Select Date"
+                android:layout_marginTop="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dateEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:inputType="none"
+                    android:drawableEnd="@android:drawable/ic_menu_today"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Time Picker -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Select Time"
+                android:layout_marginTop="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/timeEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:inputType="none"
+                    android:drawableEnd="@android:drawable/ic_menu_recent_history"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Submit Button -->
+            <Button
+                android:id="@+id/submitRequestBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Submit Request"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#D50000"
+                android:layout_marginTop="24dp" />
+
+            <!-- ListView -->
+            <ListView
+                android:id="@+id/requestListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFE6F0"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#D50000"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Full Name -->
+        <EditText
+            android:id="@+id/editName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Full Name"
+            android:inputType="textPersonName"
+            android:backgroundTint="#D50000"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Phone Number -->
+        <EditText
+            android:id="@+id/editPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            android:backgroundTint="#D50000"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Blood Group -->
+        <EditText
+            android:id="@+id/editBloodGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Blood Group"
+            android:inputType="text"
+            android:backgroundTint="#D50000"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Gender -->
+        <EditText
+            android:id="@+id/editGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Gender"
+            android:inputType="text"
+            android:backgroundTint="#D50000"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Address -->
+        <EditText
+            android:id="@+id/editAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address"
+            android:inputType="textPostalAddress"
+            android:backgroundTint="#D50000"
+            android:padding="12dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/saveProfileButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Changes"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#673AB7"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Cancel Button -->
+        <Button
+            android:id="@+id/cancelProfileButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#9E9E9E"
+            android:padding="12dp" />
+    </LinearLayout>
+</ScrollView>

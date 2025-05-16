@@ -1,121 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFE6F0"
+    tools:ignore="MissingSpeakableText"
     tools:context=".ProfileActivity">
 
-    <LinearLayout
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="center_horizontal">
+        android:layout_height="?attr/actionBarSize"
+        android:background="#D50000"
+        android:title="My Profile"
+        android:titleTextColor="#FFFFFF" />
 
-        <!-- Profile Picture -->
-        <ImageView
-            android:id="@+id/profileImage"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:src="@drawable/profile_placeholder"
-            android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
-            android:contentDescription="Profile Picture"
-            android:scaleType="centerCrop"
-            android:background="@drawable/circle_background"
-            android:padding="4dp" />
+    <!-- ScrollView with profile content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="Profile screen with user information">
 
-        <!-- Profile Title -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="My Profile"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="24dp" />
-
-        <!-- Table with Profile Data -->
-        <TableLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:stretchColumns="1">
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center_horizontal">
 
-            <TableRow>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Full Name:"
-                    android:textStyle="bold"
-                    android:padding="8dp"/>
-                <TextView
-                    android:id="@+id/nameText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="John Doe"
-                    android:padding="8dp"/>
-            </TableRow>
+            <!-- Removed My Profile TextView here -->
 
-            <TableRow>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Phone Number:"
-                    android:textStyle="bold"
-                    android:padding="8dp"/>
-                <TextView
-                    android:id="@+id/phoneText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+60123456789"
-                    android:padding="8dp"/>
-            </TableRow>
+            <!-- Table with Profile Data -->
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1">
 
-            <TableRow>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Blood Group:"
-                    android:textStyle="bold"
-                    android:padding="8dp"/>
-                <TextView
-                    android:id="@+id/bloodGroupText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="O+"
-                    android:padding="8dp"/>
-            </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="Full Name:"
+                        android:textStyle="bold"
+                        android:textColor="#D50000"
+                        android:padding="8dp"/>
+                    <TextView
+                        android:id="@+id/nameText"
+                        android:text="John Doe"
+                        android:padding="8dp"/>
+                </TableRow>
 
-            <TableRow>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Gender:"
-                    android:textStyle="bold"
-                    android:padding="8dp"/>
-                <TextView
-                    android:id="@+id/genderText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Male"
-                    android:padding="8dp"/>
-            </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="Phone Number:"
+                        android:textStyle="bold"
+                        android:textColor="#D50000"
+                        android:padding="8dp"/>
+                    <TextView
+                        android:id="@+id/phoneText"
+                        android:text="+60123456789"
+                        android:padding="8dp"/>
+                </TableRow>
 
-            <TableRow>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Address:"
-                    android:textStyle="bold"
-                    android:padding="8dp"/>
-                <TextView
-                    android:id="@+id/addressText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="123 Main Street, City"
-                    android:padding="8dp"/>
-            </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="Blood Group:"
+                        android:textStyle="bold"
+                        android:textColor="#D50000"
+                        android:padding="8dp"/>
+                    <TextView
+                        android:id="@+id/bloodGroupText"
+                        android:text="O+"
+                        android:padding="8dp"/>
+                </TableRow>
 
-        </TableLayout>
+                <TableRow>
+                    <TextView
+                        android:text="Gender:"
+                        android:textStyle="bold"
+                        android:textColor="#D50000"
+                        android:padding="8dp"/>
+                    <TextView
+                        android:id="@+id/genderText"
+                        android:text="Male"
+                        android:padding="8dp"/>
+                </TableRow>
 
-    </LinearLayout>
-</ScrollView>
+                <TableRow>
+                    <TextView
+                        android:text="Address:"
+                        android:textStyle="bold"
+                        android:textColor="#D50000"
+                        android:padding="8dp"/>
+                    <TextView
+                        android:id="@+id/addressText"
+                        android:text="123 Main Street, City"
+                        android:padding="8dp"/>
+                </TableRow>
+            </TableLayout>
+
+            <!-- Edit Profile Button -->
+            <Button
+                android:id="@+id/editProfileButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Edit Profile"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#673AB7"
+                android:layout_marginTop="32dp"
+                android:padding="12dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

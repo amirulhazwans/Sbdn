@@ -1,68 +1,91 @@
 package com.example.sbdn;
 
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import java.util.ArrayList;
-import java.util.List;
+import androidx.appcompat.widget.Toolbar;
 
 public class FindDonorActivity extends AppCompatActivity {
 
-    private RecyclerView donorRecyclerView;
-    private DonorAdapter donorAdapter;
-    private EditText searchDonorEditText;
-    private List<Donor> donorList;
+    private TextView infoTextView;
+    private ImageView hospitalImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_finddonor);
+        setContentView(R.layout.activity_find_donor);
 
-        donorRecyclerView = findViewById(R.id.donorRecyclerView);
-        searchDonorEditText = findViewById(R.id.searchDonorEditText);
+        // Setup Toolbar with back navigation
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        // Sample donor data
-        donorList = new ArrayList<>();
-        donorList.add(new Donor("John Doe", "O+", "Kuala Lumpur"));
-        donorList.add(new Donor("Jane Smith", "A+", "Shah Alam"));
-        donorList.add(new Donor("Mike Johnson", "B-", "Putrajaya"));
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Show back arrow
+            getSupportActionBar().setTitle("Find Donor"); // Set title
+        }
 
-        // Set up RecyclerView with LinearLayoutManager
-        donorRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        donorAdapter = new DonorAdapter(donorList);
-        donorRecyclerView.setAdapter(donorAdapter);
+        // Initialize views
+        Spinner hospitalSpinner = findViewById(R.id.hospitalSpinner);
+        infoTextView = findViewById(R.id.infoTextView);
+        hospitalImageView = findViewById(R.id.hospitalImageView);
 
-        searchDonorEditText.addTextChangedListener(new android.text.TextWatcher() {
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.hospitals, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        hospitalSpinner.setAdapter(adapter);
+
+        hospitalSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int start, int before, int count) {}
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
-                filterDonors(charSequence.toString());
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        infoTextView.setText("Hospital Shah Alam is a government hospital located at Persiaran Kayangan, Seksyen 7, 40000 Shah Alam, Selangor, Malaysia. It serves as a major public healthcare facility in the region, offering a wide range of medical services." +
+                                "Address:Hospital Shah Alam\n" +
+                                "Persiaran Kayangan, Seksyen 7\n" +
+                                "40000 Shah Alam\n" +
+                                "Selangor, Malaysia");
+                        hospitalImageView.setImageResource(R.drawable.hospital1);
+                        break;
+                    case 1:
+                        infoTextView.setText("Hospital Tengku Ampuan Rahimah (HTAR) is  a major government hospital located in Klang, Selangor, and is one of the busiest hospitals in Malaysia. It offers a wide range of healthcare services to the local population and surrounding areas." +
+                                "Address: Jalan Langat, 41200 Klang, Selangor, Malaysia");
+                        hospitalImageView.setImageResource(R.drawable.hospital2);
+                        break;
+                    case 2:
+                        infoTextView.setText("Setia City Healthcare is a modern ambulatory care centre located in Setia Alam, Shah Alam, Selangor. Established in 2022 through a joint venture between S P Setia Berhad and Qualitas Medical Group Sdn Bhd, the centre aims to provide comprehensive medical services to the community. \n" +
+                                "Address:\n" +
+                                "R-G-7, 8 & 9, Setia City Residences,\n" +
+                                "6, Jalan Setia Dagang AH U13/AH,\n" +
+                                "Setia Alam, 40170 Shah Alam, Selangor, Malaysia");
+                        hospitalImageView.setImageResource(R.drawable.hospital3);
+                        break;
+                    default:
+                        infoTextView.setText("");
+                        hospitalImageView.setImageDrawable(null);
+                        break;
+                }
             }
 
             @Override
-            public void afterTextChanged(android.text.Editable editable) {}
+            public void onNothingSelected(AdapterView<?> parent) {
+                infoTextView.setText("");
+            }
         });
     }
 
-    private void filterDonors(String query) {
-        if (TextUtils.isEmpty(query)) {
-            donorAdapter.updateList(donorList);
-        } else {
-            List<Donor> filteredList = new ArrayList<>();
-            for (Donor donor : donorList) {
-                if (donor.getName().toLowerCase().contains(query.toLowerCase()) ||
-                        donor.getBloodType().toLowerCase().contains(query.toLowerCase()) ||
-                        donor.getLocation().toLowerCase().contains(query.toLowerCase())) {
-                    filteredList.add(donor);
-                }
-            }
-            donorAdapter.updateList(filteredList);
+    // Handle back button in toolbar
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish(); // Close this activity and return to previous
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 }

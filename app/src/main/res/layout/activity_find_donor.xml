@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFE6F0">
+
+    <!-- Full Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="#D50000"
+        app:title="Find Blood Donor"
+        app:titleTextColor="#FFFFFF"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <!-- TextView displaying the feature message -->
+    <TextView
+        android:id="@+id/findDonorText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find Donor Nearest Hospitality"
+        android:textSize="20sp"
+        android:textColor="#D50000"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Box around the dropdown menu (Spinner) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundMode="filled"
+        app:boxBackgroundColor="@android:color/white"
+        app:boxStrokeColor="#D50000"
+        android:padding="8dp"
+        android:layout_marginTop="16dp">
+
+        <!-- Spinner for selecting hospital -->
+        <Spinner
+            android:id="@+id/hospitalSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:padding="12dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Text info area -->
+    <TextView
+        android:id="@+id/infoTextView"
+        android:layout_width="match_parent"
+        android:layout_height="188dp"
+        android:layout_marginTop="24dp"
+        android:padding="8dp"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="16sp" />
+
+    <!-- Space to push ImageView towards the bottom -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- ImageView near bottom -->
+    <ImageView
+        android:id="@+id/hospitalImageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop" />
+
+</LinearLayout>

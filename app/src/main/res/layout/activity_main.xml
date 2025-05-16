@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash_background">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/background_image"> <!-- Add this line -->
 
-    <!-- Add your logo or any other image you want to display on the splash screen -->
-    <ImageView
-        android:id="@+id/splashLogo"
+    <Button
+        android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo"
-        android:layout_centerInParent="true" />
-</RelativeLayout>
+        android:text="Let Start" />
+</LinearLayout>
+

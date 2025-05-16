@@ -92,4 +92,35 @@
     <string name="patient_details"><u>Patient Details</u></string>
     <string name="manage_requests"><u>Manage Requests</u></string>
 
+    <string-array name="hospitals">
+        <item>Hospital Shah Alam</item>
+        <item>Hospital Klang</item>
+        <item>Setia City Healthcare</item>
+    </string-array>
+
+    <string-array name="blood_types">
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+        <item>O+</item>
+        <item>O-</item>
+    </string-array>
+
+    <string-array name="urgency_levels">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+        <item>Critical</item>
+    </string-array>
+
+    <string-array name="hospital_locations">
+        <item>Hospital Shah Alam</item>
+        <item>Hospital Klang</item>
+        <item>Hospital Setia City Healthcare</item>
+    </string-array>
+
+
 </resources>

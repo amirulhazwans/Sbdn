@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,25 +16,47 @@
         android:theme="@style/Theme.Sbdn"
         tools:targetApi="31">
 
-        <!-- Main Screen -->
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+        <!-- Facebook SDK setup -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.facebook.sdk.ClientToken"
+            android:value="@string/facebook_client_token" />
 
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider.YOUR_FACEBOOK_APP_ID"
+            android:exported="true" />
+
+        <!-- Set SplashActivity as launcher -->
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!-- Other screens -->
+        <!-- MainActivity will be shown after splash -->
+        <activity android:name=".MainActivity" android:exported="true" />
         <activity android:name=".DashboardActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".RequestBloodActivity" />
         <activity android:name=".HistoryActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" /> <!-- ADD THIS -->
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".FindDonorActivity" />
+        <activity android:name=".EditProfileActivity"/>
+
 
     </application>
+
 
 </manifest>
